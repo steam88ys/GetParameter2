@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1 th:text="'Welcome GetParameter'"></h1>
+
+  <a th:href="@{/test1?data1=100&data2=200&data3=300}">test1</a>
+  <a th:href="@{/test2?data1=100&data2=200&data3=300&data3=400}">test2</a><br>
+  <a th:href="@{/test3?data1=100&data2=200&data3=300&data3=400}">WebRequest test3</a>
+  </br></br>
+  <form method="post" th:action="@{/test4}">
+      data1: <input type="text" name="data1"></br>
+      data2: <input type="text" name="data2"></br>
+      data3: <input type="checkbox" name="data3" value="300"> data3 300
+             <input type="checkbox" name="data3" value="400"> data3 400
+      <button type="submit" th:value="입력완료">submit</button></br>
+      <a th:href="@{/test5?data1=100&data2=200&data3=300&data3=400}">RequestParam test5</a>
+  </form>
+
+</body>
+</html>

@@ -2,6 +2,7 @@ package kr.hs.study.GetParameter.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
@@ -61,14 +62,25 @@ public class getParameterController {
     }
 
     @GetMapping("/test5")
-    public String test5(@RequestParam("data1") String data1,
-                        @RequestParam("data2") String data2,
-                        @RequestParam("data3") String data3[]) {
+    public String test5(@RequestParam("data1") int data1,
+                        @RequestParam("data2") int data2,
+                        @RequestParam("data3") int data3[]) {
         System.out.println("data1: " + data1);
         System.out.println("data2: " + data2);
-        for(String str:data3) {
+        for(int str:data3) {
             System.out.println("data3: "+str);
         }
         return "result";
     }
+
+    @GetMapping("/test6/{a}/{b}/{c}")
+    public String test6(@PathVariable String a,
+                        @PathVariable String b,
+                        @PathVariable String c) {
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("c: " + c);
+        return "result";
+    }
+
 }

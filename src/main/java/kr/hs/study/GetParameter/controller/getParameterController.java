@@ -1,10 +1,9 @@
 package kr.hs.study.GetParameter.controller;
 
+import kr.hs.study.GetParameter.dto.login;
+import kr.hs.study.GetParameter.dto.test7;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletRequest;
@@ -80,6 +79,26 @@ public class getParameterController {
         System.out.println("a: " + a);
         System.out.println("b: " + b);
         System.out.println("c: " + c);
+        return "result";
+    }
+
+    @GetMapping("/test7")
+    public String test7(@ModelAttribute test7 t) {
+        // @ModelAttribute test7 t: test7객체 t를 만들어서 데이터를 주입시킨다. (자동DI: @Autowired)
+        System.out.println(t.getData1());
+        System.out.println(t.getData2());
+        System.out.println(t.getData3());
+        return "result";
+    }
+
+    @GetMapping("/test8")
+    public String test8() {
+        return "login_form";
+    }
+    @PostMapping("/test8")
+    public String login_form(@ModelAttribute login login1) {
+        System.out.println("id: " + login1.getUser_id());
+        System.out.println("pass: " + login1.getUser_pass());
         return "result";
     }
 
